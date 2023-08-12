@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;600&display=swap");
+* {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+}
+button {
+  outline: none;
+  border: none;
+}
+input {
+  border: none;
+  outline: none;
+}
+input:focus {
+  border: none;
+  outline: none;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: #ffffff;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(160, 72, 72, 0.8);
+  border-radius: 4px;
+}

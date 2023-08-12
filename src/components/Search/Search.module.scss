@@ -1,0 +1,32 @@
+.search {
+  text-align: center;
+  .searchText {
+    width: 200px;
+    margin: 550px auto 0;
+    font-size: 28px;
+    font-weight: 600;
+    @media (max-width: 1110px) {
+      margin: 0 auto;
+    }
+  }
+  input {
+    margin: 20px 0;
+    padding: 0 10px;
+    font-weight: 300;
+    font-size: 16px;
+    width: 300px;
+    height: 35px;
+    border-radius: 4px 0 0 4px;
+    background-color: #dfdfdf;
+  }
+  button {
+    background-color: rgb(207, 60, 60);
+    width: 100px;
+    height: 35px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+  }
+}

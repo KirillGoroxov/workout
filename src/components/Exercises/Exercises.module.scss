@@ -1,0 +1,5 @@
+.exercises {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 340px);
+  justify-content: center;
+}

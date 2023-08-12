@@ -1,0 +1,11 @@
+.exercise {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  .title {
+    border: 1px solid #000;
+  }
+  .description {
+    border: 1px solid #000;
+  }
+}

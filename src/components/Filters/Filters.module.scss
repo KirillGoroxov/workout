@@ -1,0 +1,15 @@
+.filters {
+  margin: 0 auto;
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+  button {
+    font-weight: 300;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 80px;
+    height: 40px;
+    background-color: rgba(255, 208, 0, 0.479);
+  }
+}
