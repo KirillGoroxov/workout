@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./ExerciseDetail.module.scss";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Icons from "../../components/Icons/Icons";
 
 const ExerciseDetail = () => {
   const [exercise, setExercise] = useState();
@@ -29,20 +30,7 @@ const ExerciseDetail = () => {
           />
           <h2>{exercise.title}</h2>
           <figcaption>{exercise.description}</figcaption>
-          <figure className={styles.icons}>
-            <div className={styles.icon}>
-              <img src="./../../../icons/body-part.png" alt="" />
-              <figcaption>ТАЛИЯ</figcaption>
-            </div>
-            <div className={styles.icon}>
-              <img src="./../../../icons/target.png" alt="" />
-              <figcaption>ПРЕСС</figcaption>
-            </div>
-            <div className={styles.icon}>
-              <img src="./../../../icons/equipment.png" alt="" />
-              <figcaption>МАССА ТЕЛА</figcaption>
-            </div>
-          </figure>
+          <Icons />
         </figure>
       )}
     </>

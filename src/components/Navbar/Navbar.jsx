@@ -3,32 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
-  const navs = [...document.getElementsByName("nav")];
-  const location = useLocation();
-  useEffect(() => {
-    navs.map((nav) => {
-      if (nav.pathname === location.pathname) {
-        nav.style.textDecoration = "solid underline rgb(207, 60, 60) 3px";
-      } else nav.style.textDecoration = "none";
-    });
-  });
   return (
-    <nav className={styles.navbar}>
-      <Link to="/">
+    <nav>
+      <Link to="/" className={styles.navbar}>
         <img src="./../../../images/Logo.png" alt="" />
+        <span>Home</span>
       </Link>
-      <div className={styles.links}>
-        <Link
-          to="/"
-          name="nav"
-          style={{ textDecoration: "solid underline rgb(207, 60, 60) 3px" }}
-        >
-          Home
-        </Link>
-        <Link to="/exercises" name="nav">
-          Exercises
-        </Link>
-      </div>
     </nav>
   );
 };

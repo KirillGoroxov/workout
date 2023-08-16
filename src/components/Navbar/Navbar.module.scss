@@ -1,21 +1,14 @@
 .navbar {
   margin: 20px 0 0 40px;
+  width: 130px;
+  text-decoration: none;
+  color: #301b38;
+  font-size: 24px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  .links {
-    margin-left: 100px;
-    display: flex;
-    width: 150px;
-    justify-content: space-between;
-    a {
-      font-weight: 300;
-      font-size: 20px;
-      color: #000;
-      text-decoration: none;
-    }
-    @media (max-width: 850px) {
-      margin: 0 auto;
-    }
+  img {
+    width: 50px;
   }
   @media (max-width: 850px) {
     flex-direction: column;
