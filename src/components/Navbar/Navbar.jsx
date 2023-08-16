@@ -13,7 +13,7 @@ const Navbar = () => {
     });
   });
   return (
-    <div className={styles.navbar}>
+    <nav className={styles.navbar}>
       <Link to="/">
         <img src="./../../../images/Logo.png" alt="" />
       </Link>
@@ -29,7 +29,7 @@ const Navbar = () => {
           Exercises
         </Link>
       </div>
-    </div>
+    </nav>
   );
 };
 

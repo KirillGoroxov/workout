@@ -20,6 +20,6 @@ body::-webkit-scrollbar {
   background-color: #ffffff;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: rgba(160, 72, 72, 0.8);
+  background-color: #6187ac89;
   border-radius: 4px;
 }

@@ -9,6 +9,16 @@
       margin: 0 auto;
     }
   }
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  img {
+    width: 20px;
+    cursor: pointer;
+    padding: 5px;
+  }
   input {
     margin: 20px 0;
     padding: 0 10px;

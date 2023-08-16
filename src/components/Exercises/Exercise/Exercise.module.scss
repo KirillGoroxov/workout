@@ -1,23 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@mixin center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .exercise {
   margin: 20px;
+  height: 400px;
   text-align: center;
-  border-radius: 2px 2px 5px 5px;
+  border-radius: 10px;
+  overflow: hidden;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  border: 1px solid #000;
+  border: 1px solid #6187ac89;
   text-decoration: none;
   color: #000;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .imgContainer {
+    height: 100%;
+    @include center();
+  }
   .name {
-    font-family: "Roboto", sans-serif;
+    @include center();
+    height: 80px;
     font-weight: 300;
     margin-top: auto;
     font-size: 22px;
     padding: 10px;
-    background-color: rgb(197, 197, 197);
+    background-color: #6187ac89;
+    color: #040a21;
   }
-
   img {
     width: 100%;
   }

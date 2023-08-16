@@ -9,7 +9,9 @@ const Exercise = (props) => {
 
   return (
     <Link to={`exercise/${props.id}`} className={styles.exercise}>
-      <img src={props.url} alt="" />
+      <div className={styles.imgContainer}>
+        <img src={props.url} alt={props.title} />
+      </div>
       <div className={styles.name}> {props.name}</div>
     </Link>
   );

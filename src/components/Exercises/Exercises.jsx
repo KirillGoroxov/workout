@@ -4,7 +4,14 @@ import { nanoid } from "nanoid";
 import styles from "./Exercises.module.scss";
 const Exercises = (props) => {
   const filter = props.filter;
-  const exercises = filter ? props.filterExercises : props.exercises;
+  const searched = props.searched;
+  const searchedExercises = props.searchedExercises;
+  const exercises = filter
+    ? props.filterExercises
+    : searched
+    ? searchedExercises
+    : props.exercises;
+
   return (
     <div className={styles.exercises}>
       {exercises.map((exercise) => (

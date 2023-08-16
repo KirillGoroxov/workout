@@ -4,35 +4,41 @@ import Search from "../../components/Search/Search";
 import Exercises from "../../components/Exercises/Exercises";
 import axios from "axios";
 import Filters from "../../components/Filters/Filters";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchExercises } from "../../store/exercises";
 const Home = () => {
-  const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("Search Exercises");
   const [exercises, setExercises] = useState([]);
   const [filterExercises, setFilterExercises] = useState([]);
+  const [searchedExercises, setSearchedExercises] = useState([]);
   const [filter, setFilter] = useState(false);
+  const [searched, setSearched] = useState(false);
   useEffect(() => {
-    axios.get("http://localhost:3000/exercisesWithTypes").then((res) => {
+    axios.get("http://localhost:3000/exercises").then((res) => {
       setExercises(res.data);
-      dispatch(fetchExercises(res.data));
     });
   }, []);
   const handleSearch = async () => {
     if (searchValue !== "" && searchValue !== "Search Exercises") {
-      axios.get("http://localhost:3000/exercises").then((res) => {
-        console.log(res.data);
-      });
+      setSearched(true);
+      const searched = exercises.filter((exercise) =>
+        exercise.title.toUpperCase().includes(searchValue.toUpperCase().trim())
+      );
+      setSearchedExercises(searched);
     }
   };
+  // нажатие на кнопку explore exercises
   const scrollBottom = () => {
+    const width = window.innerWidth;
     window.scrollTo({
-      top: 700,
+      top: width > 1110 ? 1050 : width < 850 ? 470 : 700,
       behavior: "smooth",
     });
   };
-  const state = useSelector((state) => state.exercises);
-  console.log(state);
+  const clearSearch = () => {
+    if (searched || searchValue !== "" || searchValue !== "Search Exercises") {
+      setSearchValue("Search Exercises");
+      setSearched(false);
+    }
+  };
   return (
     <div className={styles.home}>
       <div className={styles.text}>
@@ -45,12 +51,13 @@ const Home = () => {
       <img
         src="./../../../images/banner.png"
         className={styles.banner}
-        alt=""
+        alt="banner"
       />
       <Search
         searchValue={searchValue}
         setSearchValue={setSearchValue}
         handleSearch={handleSearch}
+        clearSearch={clearSearch}
       />
       <Filters
         setFilterExercises={setFilterExercises}
@@ -62,6 +69,8 @@ const Home = () => {
         filterExercises={filterExercises}
         exercises={exercises}
         filter={filter}
+        searched={searched}
+        searchedExercises={searchedExercises}
       />
     </div>
   );

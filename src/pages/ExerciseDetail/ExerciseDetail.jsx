@@ -1,20 +1,51 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ExerciseDetail.module.scss";
-import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const ExerciseDetail = () => {
-  const location = useLocation();
-  const state = useSelector((state) => state.exercises);
-  const path = location.pathname.split("/");
-  console.log(state);
+  const [exercise, setExercise] = useState();
+  const [gifSrc, setGifSrc] = useState();
+  const { id } = useParams();
+  const img = new Image();
+  img.src = gifSrc;
+  useEffect(() => {
+    axios.get(`http://localhost:3000/exercises/${id}`).then((res) => {
+      const data = res.data;
+      setExercise(data);
+      setGifSrc(data.gif);
+    });
+  }, []);
+  const classExercise = img.width < 400 ? styles.min : styles.max;
   return (
-    <></>
-    // <div className={styles.exercise}>
-    //   <img src={obj.gif} alt="gif" />
-    //   <div className={styles.title}>{obj.title}</div>
-    //   <div className={styles.description}>{obj.description}</div>
-    // </div>
+    <>
+      {exercise && (
+        <figure className={classExercise}>
+          <img
+            src={exercise.gif}
+            className={styles.gif}
+            id="gif"
+            alt={exercise.title}
+          />
+          <h2>{exercise.title}</h2>
+          <figcaption>{exercise.description}</figcaption>
+          <figure className={styles.icons}>
+            <div className={styles.icon}>
+              <img src="./../../../icons/body-part.png" alt="" />
+              <figcaption>ТАЛИЯ</figcaption>
+            </div>
+            <div className={styles.icon}>
+              <img src="./../../../icons/target.png" alt="" />
+              <figcaption>ПРЕСС</figcaption>
+            </div>
+            <div className={styles.icon}>
+              <img src="./../../../icons/equipment.png" alt="" />
+              <figcaption>МАССА ТЕЛА</figcaption>
+            </div>
+          </figure>
+        </figure>
+      )}
+    </>
   );
 };
 

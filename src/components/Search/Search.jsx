@@ -10,14 +10,25 @@ const Search = (props) => {
   return (
     <div className={styles.search}>
       <div className={styles.searchText}>Awesome Exercises You Should Know</div>
-      <input
-        type="text"
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
-        onFocus={() => searchValue === "Search Exercises" && setSearchValue("")}
-        onBlur={() => searchValue === "" && setSearchValue("Search Exercises")}
-      />
-      <button onClick={handleSearch}>Search</button>
+      <div className={styles.input}>
+        <img
+          src="./../../../icons/cross.svg"
+          alt=""
+          onClick={props.clearSearch}
+        />
+        <input
+          type="text"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
+          onFocus={() =>
+            searchValue === "Search Exercises" && setSearchValue("")
+          }
+          onBlur={() =>
+            searchValue === "" && setSearchValue("Search Exercises")
+          }
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
     </div>
   );
 };
