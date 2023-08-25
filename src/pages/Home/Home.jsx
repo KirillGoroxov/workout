@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Home.module.scss";
 import Search from "../../components/Search/Search";
 import Exercises from "../../components/Exercises/Exercises";
 import axios from "axios";
 import Filters from "../../components/Filters/Filters";
+import Welcome from "../../components/Welcome/Welcome";
 const Home = () => {
   const [searchValue, setSearchValue] = useState("Search Exercises");
   const [exercises, setExercises] = useState([]);
@@ -24,6 +24,7 @@ const Home = () => {
       );
       setSearchedExercises(searched);
     }
+    if (searchValue === "") setSearched(false);
   };
   // нажатие на кнопку explore exercises
   const scrollBottom = () => {
@@ -40,19 +41,8 @@ const Home = () => {
     }
   };
   return (
-    <div className={styles.home}>
-      <div className={styles.text}>
-        <h2>Fintess Club</h2>
-        <h3>Sweat, Smile and Repeat</h3>
-        <div>Check out the most effective exercises</div>
-        <button onClick={scrollBottom}>EXPLORE EXERCISES</button>
-        <div className={styles.exercises}>EXERCISES</div>
-      </div>
-      <img
-        src="./../../../images/banner.png"
-        className={styles.banner}
-        alt="banner"
-      />
+    <>
+      <Welcome scrollBottom={scrollBottom} />
       <Search
         searchValue={searchValue}
         setSearchValue={setSearchValue}
@@ -72,7 +62,7 @@ const Home = () => {
         searched={searched}
         searchedExercises={searchedExercises}
       />
-    </div>
+    </>
   );
 };
 
