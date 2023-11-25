@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./Filters.module.scss";
-const Filters = (props) => {
+const Filters = ({ setFilterExercises, setFilter }) => {
   const filters = ["all", "cardio", "legs", "press", "hands"];
-  const setFilter = props.setFilter;
   const filtersButton = [...document.getElementsByName("filter")];
   const selection = "2px solid rgb(207, 60, 60)";
   // Используем хук для того чтобы добавить селектор к 'All'
@@ -22,7 +21,7 @@ const Filters = (props) => {
       const filterExercises = props.exercises.filter(
         (exer) => exer.type === id
       );
-      props.setFilterExercises(filterExercises);
+      setFilterExercises(filterExercises);
     } else setFilter(false);
   };
   return (

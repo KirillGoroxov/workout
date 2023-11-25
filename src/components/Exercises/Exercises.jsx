@@ -2,19 +2,16 @@ import React from "react";
 import Exercise from "./Exercise/Exercise";
 import { nanoid } from "nanoid";
 import styles from "./Exercises.module.scss";
-const Exercises = (props) => {
-  const filter = props.filter;
-  const searched = props.searched;
-  const searchedExercises = props.searchedExercises;
-  const exercises = filter
-    ? props.filterExercises
+const Exercises = ({ filter, searched, searchedExercises, exercises }) => {
+  const exercisesLocal = filter
+    ? filterExercises
     : searched
     ? searchedExercises
-    : props.exercises;
+    : exercises;
 
   return (
     <div className={styles.exercises}>
-      {exercises.map((exercise) => (
+      {exercisesLocal.map((exercise) => (
         <Exercise
           name={exercise.title}
           url={exercise.gif}

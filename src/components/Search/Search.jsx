@@ -1,9 +1,6 @@
 import React from "react";
 import styles from "./Search.module.scss";
-const Search = (props) => {
-  const setSearchValue = props.setSearchValue;
-  const searchValue = props.searchValue;
-  const handleSearch = props.handleSearch;
+const Search = ({ setSearchValue, searchValue, handleSearch, clearSearch }) => {
   document.addEventListener("keyup", (e) => {
     if (e.code == "Enter") handleSearch();
   });
@@ -11,11 +8,7 @@ const Search = (props) => {
     <div className={styles.search}>
       <div className={styles.searchText}>Awesome Exercises You Should Know</div>
       <div className={styles.input}>
-        <img
-          src="./../../../icons/cross.svg"
-          alt=""
-          onClick={props.clearSearch}
-        />
+        <img src="./../../../icons/cross.svg" alt="" onClick={clearSearch} />
         <input
           type="text"
           value={searchValue}
